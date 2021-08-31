@@ -9,6 +9,7 @@ export const initialState = {
 const GET_USERS = "GET_USERS";
 const SEARCH_USERS = "SEARCH_USERS";
 const SORT_USERS = "SORT_USERS";
+const GET_USER_BY_ID = "GET_USER_BY_ID";
 
 const _sortBy = (arr, key) => arr.sort((a, b) => a[key] < b[key] ? -1 : 1)  
 
@@ -34,6 +35,13 @@ export function userReducer(state, action) {
                     .filter(f => f.name.toLowerCase().includes(action.payload) || f.email.toLowerCase().includes(action.payload) || f.username.toLowerCase().includes(action.payload))
             }
         }
+        case GET_USER_BY_ID: {
+            console.log(state.users)
+            return {
+                ...state,
+                userDetail: state?.users?.find(f => f.id === action.id)
+            }
+        }
         default:
             return state;
     }
@@ -50,4 +58,8 @@ export function search(param, dispatch){
 
 export function sortByAction(sortKey, dispatch) {
     dispatch({ type: SORT_USERS, payload: sortKey })
+}
+
+export function getUserById(id, dispatch){
+    dispatch({ type: GET_USER_BY_ID, id: Number(id) })
 }
