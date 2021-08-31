@@ -29,7 +29,7 @@ const Details = () => {
                 <span className="pt-1">|</span>
                 <p className="text-xl font-semibold ml-3 pt-1 border-b border-black" >{userDetail?.name}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-5">
                 <UserInfo data={userDetail} />
                 <AddressInfo data={userDetail?.address} />
                 <CompanyInfo data={userDetail?.company} />
