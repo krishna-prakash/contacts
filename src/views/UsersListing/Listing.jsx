@@ -24,7 +24,6 @@ const Listing = () => {
     }
 
     const clickAction = (v) => {
-        console.log(v);
         history.push(`/users/${v}`);
     }
 

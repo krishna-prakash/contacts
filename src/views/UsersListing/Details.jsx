@@ -17,7 +17,7 @@ const Details = () => {
     React.useEffect(() => {
         getUserById(userId, dispatch)
         getPostByUser(userId, dispatch)
-    }, [state?.users, userId])
+    }, [state?.users, userId, dispatch])
 
     if (!state?.userDetail) {
         return "Loading";
@@ -35,12 +35,15 @@ const Details = () => {
                 <AddressInfo data={userDetail?.address} />
                 <CompanyInfo data={userDetail?.company} />
             </div>
+            {state[userId] && (
+                <>
             <h2 className="pt-10 pb-5 text-xl font-semibold">Post By <span className="border-b border-black">{userDetail?.name}</span></h2>
             <div className="grid grid-cols-1 gap-5 mt-5">
                 
                 {state[userId].map(m => (<Post key={m.id} data={m} />))}
             </div>
-
+            </>
+            )}
         </div>
     )
 }
