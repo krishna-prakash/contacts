@@ -13,6 +13,7 @@ const Details = () => {
 
     const { userDetail } = state;
 
+    /*disable-react-hooks/exhaustive-deps*/
     React.useEffect(() => {
         getUserById(userId, dispatch)
         getPostByUser(userId, dispatch)
