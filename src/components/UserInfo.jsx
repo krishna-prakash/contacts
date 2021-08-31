@@ -7,7 +7,7 @@ const UserInfo = ({ data }) => {
             <p>Uername: {data.username}</p>
             <p>Email: {data.email}</p>
             <p>Phone: {data.phone}</p>
-            <p className="flex"><img className="w-4 h-4 mt-1 pr-2" src="https://img.icons8.com/pastel-glyph/64/000000/website--v2.png"/> {data.website}</p>
+            <p className="flex"><img alt="website" className="w-4 h-4 mt-1 pr-2" src="https://img.icons8.com/pastel-glyph/64/000000/website--v2.png"/> {data.website}</p>
         </div>
     )
 }

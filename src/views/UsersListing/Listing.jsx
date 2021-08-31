@@ -29,17 +29,21 @@ const Listing = () => {
     }
 
     return (
-        <div className="w-auto mx-auto">
-            <section className="md:flex ">
-                <h2 className="text-lg font-bold">Users</h2>
-                <div>
-                <div className="md:flex md:gap-5">
-                    <input onChange={(e) => initSearch(e)} type="text" placeholder="Search here" className="rounded-md p-2" />
-                    <Select className="w-80 rounded-md" options={opts} onChange={(e) => initSort(e)} />
-                </div>
+        <div className="w-auto  p-5 flex flex-col gap-5 md:p-20">
+            <section className="md:flex md:gap-5 space-y-3 md:space-y-0">
+                <h2 className="text-2xl font-extrabold ml-1 align-middle">Users</h2>
+                <div className="md:w-full flex flex-col gap-5 md:flex-row md:justify-end md:gap-5">
+                    <div className="flex flex-col">
+                        <label className="text-lg ml-2">Search</label>
+                        <input onChange={(e) => initSearch(e)} type="text" placeholder="Search here" className="w-full md:w-64 rounded-md p-2" />
+                    </div>
+                    <div className="flex flex-col">
+                        <label className="text-lg ml-2">Sort</label>
+                        <Select className="w-full md:w-64 rounded-md" options={opts} defaultValue={opts[0]} onChange={(e) => initSort(e)} />
+                    </div>
                 </div>
             </section>
-            <section className="p-5 md:p-20 flex flex-col gap-5">
+            <section className="flex flex-col gap-5">
                 {state?.filteredUsers.length === 0 ? <UserCard users={state?.users} onClickAction={(v) => clickAction(v)} /> : <UserCard users={state?.filteredUsers} onClickAction={(v) => clickAction(v)} />}
             </section>
         </div>
