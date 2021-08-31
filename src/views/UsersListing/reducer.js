@@ -53,7 +53,7 @@ export function userReducer(state, action) {
 }
 
 export function getUsersData(dispatch) {
-    return fetch("http://jsonplaceholder.typicode.com/users").then(d => d.json()).then(d => dispatch({ type: GET_USERS, payload: d }));
+    return fetch("https://jsonplaceholder.typicode.com/users").then(d => d.json()).then(d => dispatch({ type: GET_USERS, payload: d }));
 
 }
 
@@ -70,5 +70,5 @@ export function getUserById(id, dispatch){
 }
 
 export function getPostByUser(id, dispatch){
-    return fetch(`http://jsonplaceholder.typicode.com/posts?userId=${id}`).then(d => d.json()).then(d => dispatch({ type: GET_POSTS_BY_USERS, payload: d, id }));
+    return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`).then(d => d.json()).then(d => dispatch({ type: GET_POSTS_BY_USERS, payload: d, id }));
 }
