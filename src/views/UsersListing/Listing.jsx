@@ -15,6 +15,14 @@ const Listing = () => {
     const { state, dispatch } = React.useContext(UsersContext);
     const history = useHistory();
 
+    const _debounce = (func) => {
+        let timer;
+        return function(...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => func.apply(this, args), 300)
+        }
+    }
+
     const initSearch = (e) => {
         search(e.target.value, dispatch);
     }
@@ -34,7 +42,7 @@ const Listing = () => {
                 <div className="md:w-full flex flex-col gap-5 md:flex-row md:justify-end md:gap-5">
                     <div className="flex flex-col">
                         <label className="text-lg ml-2">Search</label>
-                        <input onChange={(e) => initSearch(e)} type="text" placeholder="Search here" className="w-full md:w-64 rounded-md p-2" />
+                        <input onChange={_debounce(initSearch)} type="text" placeholder="Search here" className="w-full md:w-64 rounded-md p-2" />
                     </div>
                     <div className="flex flex-col">
                         <label className="text-lg ml-2">Sort</label>
