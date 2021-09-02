@@ -9,7 +9,15 @@ const UserCard = ({ users, onClickAction }) => {
                     <figcaption className="md:pl-5 flex flex-col justify-center pt-5 md:pt-0">
                         <p className="text-gray-700 font-semibold mb-2 text-xl">{m.name}</p>
                         <p className="text-gray-600">{m.username}</p>
-                        <a href={`mailto:${m.email}`} className="text-gray-600 hover:text-blue-500">{m.email}</a>
+                        <p
+                            className="text-gray-600 hover:text-blue-500"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                window.location.href = `mailto:${m.email}`;
+                            }
+                            } >
+                            {m.email}
+                        </p>
                     </figcaption>
                 </figure>
             ))}
